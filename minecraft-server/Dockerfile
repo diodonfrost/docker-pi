@@ -11,10 +11,12 @@ RUN apt-get update && apt-get install -y \
     jq \
     && rm -rf /var/lib/apt/lists/*
 
-COPY scripts/* /tmp/
+COPY scripts/* /data/
 ARG MINECRAFT_VERSION=latest
-RUN /tmp/get_mc_server.sh
+RUN /data/get_mc_server.sh
 
 EXPOSE 25565
 
-CMD ["java", "-Xmx2G", "-jar", "minecraft_server.jar", "nogui"]
+ENV MC_MEMORY="2G"
+
+ENTRYPOINT [ "/data/start.sh" ]
