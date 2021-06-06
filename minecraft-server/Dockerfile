@@ -1,4 +1,3 @@
-
 FROM ubuntu:18.04
 LABEL maintainer="diodonfrost <diodon.frost@diodonfrost.me>"
 
